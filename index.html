@@ -1,78 +1,98 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Sergio's github.io</title>
-    <link rel="stylesheet" href="index_style.css">
-  </head>
-  <body>
-    <header class="container">
-      <!-- Content of the header section -->
-      <h1>Sergio's github.io!</h1>
-    </header>
-    <div class="container">
-      <nav class="sidebar">
-        <ul>
-          <li><a href="#DRL">- Deep Reinforcement Learning</a></li>
-          <li></li>
-          <li><a href="#mstrio">- mstrio-py SDK</a></li>
-          <!-- Add more links here -->
+<html lang="en">
+<head>
+  <title>Sergio Sainz's Portfolio</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+    /* Add some spacing between the menu and content */
+    body {
+      padding-top: 70px;
+    }
+  </style>
+  <script>
+    $(document).ready(function(){
+      // Add click event listeners to the menu items
+      $(".menu-item").click(function(){
+        // Hide all sections
+        $(".section").hide();
+        // Show the selected section
+        $("#" + $(this).attr("data-section")).show();
+        // Change the active menu item
+        $(".menu-item").removeClass("active");
+        $(this).addClass("active");
+      });
+      // Show the first section by default
+      $(".section:first").show();
+      // Mark the first menu item as active by default
+      $(".menu-item:first").addClass("active");
+    });
+  </script>
+</head>
+<body>
+  <!-- Fixed top menu -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+        </button>
+        <a class="navbar-brand" href="#">Sergio Sainz's Portfolio</a>
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <li><a class="menu-item" data-section="section1" href="#">Deep Learning</a></li>
+          <li><a class="menu-item" data-section="section2" href="#">Python SDK</a></li>
+          <li><a class="menu-item" data-section="section3" href="#">Generative AI</a></li>
         </ul>
-      </nav>
-      <main class="content">
-        <div id="DRL">
-          <!-- Content of project 1 page -->
-          Demonstrated Deep Reinforcement Learning could improve vehicle allocation over existing techniques by 2% on average. Additionally proved imitation learning boosts training by a factor of three.
-          <a href="https://arxiv.org/abs/2201.05720"> Arxiv </a>
-        </div>
-        <div id="mstrio">          
-          Original author of innovative SDK mstrio-py that connects Python to MicroStrategy REST API. Designed parser to convert MicroStrategy report to pandas table and vice versa. Today it has 52 forks and 81 stars in <a href="https://github.com/MicroStrategy/mstrio-py"> github </a>.
-        </div>
-        <!-- Add more project pages here -->
-      </main>
+      </div>
     </div>
-    <style>
-      /* Style the sidebar navigation */
-      .sidebar {
-        width: 200px;
-        float: left;
-        margin-right: 20px;
-      }
-
-      .sidebar ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-      }
-
-      .sidebar li {
-        margin-bottom: 10px;
-      }
-
-      .sidebar a {
-        display: block;
-        color: gray;
-        text-decoration: none;
-        transition: color 0.2s ease-in-out;
-      }
-
-      .sidebar a:hover {
-        color: black;
-      }
-
-      /* Style the content area */
-      .content {
-        overflow: hidden; /* Clear floats */
-      }
-
-      .content > div {
-        display: none;
-        transition: display 0.2s ease-in-out;
-      }
-
-      .content > div:target {
-        display: block;
-      }
-    </style>
-  </body>
+  </nav>
+  
+  <!-- Content sections -->
+  <div class="container">
+    <div id="section1" class="section">
+      <h1>Deep Reinforcement Learning for Fleet Management</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <img src="img/city_grid.png" class="img-fluid mb-3" alt="City grid" style="width: 500px; height: 400px;">
+          </div>
+          <div class="col-sm-6">
+            <img src="img/deep_rl_fleet_management_performance.png" class="img-fluid mb-3" alt="Performance" style="width: 500px; height: 400px;">
+          </div>
+        </div>
+      </div>
+      <p>Used deep reinforcement learning to optimize the routing of shared autonomous taxis in a city in order to optimize for lower fuel consumption, lower unoccupancy , lower parking costs. Used imitation learning to copy previous state-of-the-art heuristic algorithm and later on deep reinforcement learning to surpass the state-of-the-art.</p>
+      <a href="https://arxiv.org/abs/2201.05720" class="btn btn-link">Read more</a>
+    </div>
+    <div id="section2" class="section">
+      <h1>mstrio-py Python SDK</h1>
+      <img src="img/bridge.jpg" class="img-fluid mb-3" alt="Bridge">
+      <p>Innovate by creating the first version of mstrio python SDK during hackaton: it allows to use high-level Python classes to connect to MicroStrategy's Server. Idea is to let machine learning engineers to push inference results from pandas' dataframe to MicroStrategy Server. As well as read data from MicroStrategy's Server into pandas' dataframes.</p>      
+      <a href="https://github.com/MicroStrategy/mstrio-py" class="btn btn-link">Read more</a>
+    </div>    
+    <div id="section3" class="section">
+      <h1>Generative AI</h1>
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <img src="img/text2img.png" class="img-fluid mb-3" alt="Generative AI 1" style="width: 500px; height: 400px;">
+          </div>
+          <div class="col-sm-6">
+            <img src="img/aiGeneratedArt.png" class="img-fluid mb-3" alt="Generative AI 2" style="width: 500px; height: 400px;">
+          </div>
+        </div>
+      </div>
+      
+      <p>Used Stable Diffusion AI 's diffusion model to create a web application using Springboot and bootstrap to let users create AI generated images from text (text2img).</p>
+      <p>Running on personal GPU's of 12 GB VRAM of size.</p>
+    </div>
+  </div>
+</body>
 </html>
